@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AndroidToDoList</string>
+    <string name="welcome_message">Welcome To Cory\'s ToDo List</string>
+    <string name="add_symbol">+</string>
+    <string name="add_todo">Add a New Todo</string>
+    <string name="enter_todo_item_name">Enter todo item name</string>
+    <string name="urgent">Urgent?</string>
+    <string name="save">SAVE</string>
+    <string name="cancel">CANCEL</string>
 </resources>
