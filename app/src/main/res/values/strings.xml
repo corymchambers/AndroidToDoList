@@ -9,4 +9,5 @@
     <string name="cancel">CANCEL</string>
     <string name="item_name">item name</string>
     <string name="item_urgency">item urgency</string>
+    <string name="edit_item_message">Edit a Todo Item</string>
 </resources>
