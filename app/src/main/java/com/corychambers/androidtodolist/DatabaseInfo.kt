@@ -6,7 +6,7 @@ object DatabaseInfo {
 
     const val SQL_CREATE_TABLE_QUERY =
         "CREATE TABLE  ${TableInfo.TABLE_NAME} (" +
-        "${BaseColumns.ID} INTEGER PRIMARY KEY" +
+        "${BaseColumns._ID} INTEGER PRIMARY KEY" +
         "${TableInfo.COLUMN_ITEM_NAME} TEXT," +
         "${TableInfo.COLUMN_ITEM_URGENCY} INTEGER," +
         "${TableInfo.COLUMN__DATE} TEXT)"
