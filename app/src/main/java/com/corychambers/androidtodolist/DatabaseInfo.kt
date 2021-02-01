@@ -9,7 +9,7 @@ object DatabaseInfo {
         "${BaseColumns._ID} INTEGER PRIMARY KEY" +
         "${TableInfo.COLUMN_ITEM_NAME} TEXT," +
         "${TableInfo.COLUMN_ITEM_URGENCY} INTEGER," +
-        "${TableInfo.COLUMN__DATE} TEXT)"
+        "${TableInfo.COLUMN_DATE} TEXT)"
 
     const val SQL_DELETE_TABLE_QUERY = "DROP TABLE IF EXISTS ${TableInfo.TABLE_NAME}"
 
@@ -19,6 +19,6 @@ object DatabaseInfo {
         const val TABLE_NAME = "todoItemsTable"
         const val COLUMN_ITEM_NAME = "itemName"
         const val COLUMN_ITEM_URGENCY = "itemUrgency"
-        const val COLUMN__DATE = "itemDate"
+        const val COLUMN_DATE = "itemDate"
     }
 }
