@@ -19,9 +19,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        todoItemsList.add(TodoItem("Buy Groceries", true))
-        todoItemsList.add(TodoItem("Do laundry"))
-        todoItemsList.add(TodoItem("Play guitar", true))
+        val dbo = DatabaseOperations(this)
+        val cursor = dbo.getAllItems(dbo)
+        with(cursor) {
+            while(moveToNext()) {
+                val itemName = cursor.getString(getColumnIndex(DatabaseInfo.TableInfo.COLUMN_ITEM_NAME))
+                val itemUrgency = cursor.getInt(getColumnIndex(DatabaseInfo.TableInfo.COLUMN_ITEM_URGENCY))
+                val isUrgent = itemUrgency != 0
+                todoItemsList.add(TodoItem(itemName, isUrgent))
+            }
+        }
+
+//        todoItemsList.add(TodoItem("Buy Groceries", true))
+//        todoItemsList.add(TodoItem("Do laundry"))
+//        todoItemsList.add(TodoItem("Play guitar", true))
 
         todoItemRecyclerView = findViewById(R.id.todo_item_recycler_view)
 
@@ -33,7 +44,6 @@ class MainActivity : AppCompatActivity() {
             layoutManager = recyclerLayoutManager
             adapter = recyclerAdapeter
         }
-
     }
 
     public fun navToAddItemAction(view: View) {

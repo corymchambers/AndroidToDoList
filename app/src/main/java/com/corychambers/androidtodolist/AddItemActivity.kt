@@ -14,6 +14,9 @@ class AddItemActivity : AppCompatActivity() {
     private lateinit var urgentCheck: CheckBox
     private lateinit var titleTextView: TextView
 
+    private var isNewItem = true
+    private lateinit var oldItem: TodoItem
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_item)
@@ -28,10 +31,15 @@ class AddItemActivity : AppCompatActivity() {
         if (itemName != null) {
             itemnameEditText.setText(itemName)
             titleTextView.setText(R.string.edit_item_message)
+
+            oldItem = TodoItem(itemName)
+            isNewItem = false
         }
 
         if (itemUrgency == true) {
             urgentCheck.isChecked = true
+
+            oldItem.isUrgent = itemUrgency
         }
     }
 
@@ -41,6 +49,15 @@ class AddItemActivity : AppCompatActivity() {
     }
 
     public fun savePressed(view: View) {
+        val itemName = itemnameEditText.text.toString()
+        val isItemUrgent = urgentCheck.isChecked
+        val newTodoItem = TodoItem(itemName, isItemUrgent)
 
+        val dbo = DatabaseOperations(this)
+        if (isNewItem) {
+            dbo.addItem(dbo, newTodoItem)
+        } else {
+            dbo.updateItem(dbo, this.oldItem, newTodoItem)
+        }
     }
 }

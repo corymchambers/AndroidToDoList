@@ -45,12 +45,23 @@ class DatabaseOperations(context: Context): SQLiteOpenHelper(context, DATABASE_N
 
     fun getAllItems(dbo: DatabaseOperations): Cursor {
         val db = dbo.readableDatabase
-        val projection = arrayOf(BaseColumns._ID, DatabaseInfo.TableInfo.COLUMN_ITEM_NAME, DatabaseInfo.TableInfo.COLUMN_ITEM_URGENCY, DatabaseInfo.TableInfo.COLUMN_DATE)
+        val projection = arrayOf(
+            BaseColumns._ID,
+            DatabaseInfo.TableInfo.COLUMN_ITEM_NAME,
+            DatabaseInfo.TableInfo.COLUMN_ITEM_URGENCY,
+            DatabaseInfo.TableInfo.COLUMN_DATE)
         val selection = ""
         val selectionArgs = null
         val sortOrder = null
 
-        val cursor = db.query(DatabaseInfo.TableInfo.TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder)
+        val cursor = db.query(
+            DatabaseInfo.TableInfo.TABLE_NAME,
+            projection,
+            selection,
+            selectionArgs,
+            null,
+            null,
+            sortOrder)
         return cursor
     }
 
