@@ -5,6 +5,7 @@ import java.util.*
 class TodoItem(var name: String) {
     var isUrgent = false
     var date = Calendar.getInstance()
+    var dateString: String = getDateAsString()
 
     // calls the super constructor with the name
     constructor(name: String, isUrgent: Boolean) : this(name) {

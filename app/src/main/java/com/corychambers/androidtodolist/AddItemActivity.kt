@@ -59,5 +59,9 @@ class AddItemActivity : AppCompatActivity() {
         } else {
             dbo.updateItem(dbo, this.oldItem, newTodoItem)
         }
+
+        var intent: Intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+
     }
 }
