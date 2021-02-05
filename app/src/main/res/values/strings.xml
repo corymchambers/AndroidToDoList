@@ -13,4 +13,5 @@
     <string name="today_button_text">Today\'s Items</string>
     <string name="past_button_text">Past Items</string>
     <string name="item_date">item date</string>
+    <string name="all_button_text">All Items</string>
 </resources>

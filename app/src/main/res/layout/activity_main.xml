@@ -1,60 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorLight"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/home_title_text_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="center"
+        android:text="@string/welcome_message"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/buttons_layout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="0.1"
-        android:gravity="center"
-        android:text="@string/welcome_message"
-        android:textSize="20sp"
-        android:textColor="#000000"/>
+        app:layout_constraintVertical_weight="0.1" />
 
     <LinearLayout
         android:id="@+id/buttons_layout"
-        app:layout_constraintTop_toBottomOf="@id/home_title_text_view"
-        app:layout_constraintBottom_toTopOf="@id/todo_item_recycler_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="50dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/todo_item_recycler_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_title_text_view">
+
+        <Button
+            android:id="@+id/all_items_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:onClick="displayAllItems"
+            android:text="@string/all_button_text"
+            android:textColor="@color/colorLight"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/todays_items_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:textColor="@android:color/white"
+            android:background="@color/colorLight"
+            android:onClick="displayTodaysItems"
             android:text="@string/today_button_text"
-            android:textSize="18sp"
-            android:onClick="displayTodaysItems"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/past_items_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:textColor="@android:color/white"
+            android:background="@color/colorLight"
+            android:onClick="displayPastItems"
             android:text="@string/past_button_text"
-            android:textSize="18sp"
-            android:onClick="displayPastItems"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -73,19 +87,19 @@
         android:id="@+id/home_add_button"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:background="#000000"
+        android:gravity="center"
+        android:onClick="navToAddItemAction"
+        android:text="@string/add_symbol"
+        android:textColor="#ffffff"
+        android:textSize="35sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintVertical_bias="0.9"
-        android:text="@string/add_symbol"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:background="#000000"
-        android:textColor="#ffffff"
-        android:onClick="navToAddItemAction"/>
+        app:layout_constraintVertical_bias="0.9" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

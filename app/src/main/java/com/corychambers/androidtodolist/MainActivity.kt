@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var todoItemRecyclerView: RecyclerView
     private lateinit var recyclerAdapeter: TodoItemsAdapter
     private lateinit var recyclerLayoutManager: RecyclerView.LayoutManager
+    private lateinit var allItemsButton: Button
     private lateinit var todaysItemsButton: Button
     private lateinit var pastItemsButton: Button
 
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.setTitle("The Greatest To Do List App")
+        supportActionBar?.setSubtitle("For now...")
 
         val dbo = DatabaseOperations(this)
         val cursor = dbo.getAllItems(dbo)
@@ -49,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         todoItemRecyclerView = findViewById(R.id.todo_item_recycler_view)
+        allItemsButton = findViewById(R.id.all_items_button)
         todaysItemsButton = findViewById(R.id.todays_items_button)
         pastItemsButton = findViewById(R.id.past_items_button)
 
@@ -62,9 +66,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun displayAllItems(view: View) {
+        // fill this out and hook up function to switch the colors
+    }
+
     public fun displayTodaysItems(view: View) {
         recyclerAdapeter = TodoItemsAdapter(todaysItemsList, this)
-        todaysItemsButton.setBackgroundResource(R.color.colorGreen)
+        todaysItemsButton.setBackgroundResource(R.color.colorLight)
         pastItemsButton.setBackgroundResource(R.color.colorAccent)
 
         todoItemRecyclerView.apply {
@@ -76,7 +84,7 @@ class MainActivity : AppCompatActivity() {
 
     public fun displayPastItems(view: View) {
         recyclerAdapeter = TodoItemsAdapter(pastItemsList, this)
-        pastItemsButton.setBackgroundResource(R.color.colorGreen)
+        pastItemsButton.setBackgroundResource(R.color.colorLight)
         todaysItemsButton.setBackgroundResource(R.color.colorAccent)
 
         todoItemRecyclerView.apply {
@@ -84,6 +92,10 @@ class MainActivity : AppCompatActivity() {
             layoutManager = recyclerLayoutManager
             adapter = recyclerAdapeter
         }
+    }
+
+    fun updateTabColors(btn: String) {
+
     }
 
     public fun navToAddItemAction(view: View) {
