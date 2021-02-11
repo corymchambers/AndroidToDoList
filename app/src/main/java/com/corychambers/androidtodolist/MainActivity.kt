@@ -3,6 +3,7 @@ package com.corychambers.androidtodolist
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -67,13 +68,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun displayAllItems(view: View) {
-        // fill this out and hook up function to switch the colors
+        recyclerAdapeter = TodoItemsAdapter(todoItemsList, this)
+        allItemsButton.setBackgroundResource(R.color.colorPrimary)
+        allItemsButton.setTextColor(getResources().getColor(R.color.colorLight))
+        todaysItemsButton.setBackgroundResource(R.color.colorLight)
+        todaysItemsButton.setTextColor(getResources().getColor(R.color.colorPrimary))
+        pastItemsButton.setBackgroundResource(R.color.colorLight)
+        pastItemsButton.setTextColor(getResources().getColor(R.color.colorPrimary))
+
+        todoItemRecyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = recyclerLayoutManager
+            adapter = recyclerAdapeter
+        }
     }
 
     public fun displayTodaysItems(view: View) {
         recyclerAdapeter = TodoItemsAdapter(todaysItemsList, this)
-        todaysItemsButton.setBackgroundResource(R.color.colorLight)
-        pastItemsButton.setBackgroundResource(R.color.colorAccent)
+        todaysItemsButton.setBackgroundResource(R.color.colorPrimary)
+        todaysItemsButton.setTextColor(getResources().getColor(R.color.colorLight))
+        pastItemsButton.setBackgroundResource(R.color.colorLight)
+        pastItemsButton.setTextColor(getResources().getColor(R.color.colorPrimary))
+        allItemsButton.setBackgroundResource(R.color.colorLight)
+        allItemsButton.setTextColor(getResources().getColor(R.color.colorPrimary))
 
         todoItemRecyclerView.apply {
             setHasFixedSize(true)
@@ -84,18 +101,18 @@ class MainActivity : AppCompatActivity() {
 
     public fun displayPastItems(view: View) {
         recyclerAdapeter = TodoItemsAdapter(pastItemsList, this)
-        pastItemsButton.setBackgroundResource(R.color.colorLight)
-        todaysItemsButton.setBackgroundResource(R.color.colorAccent)
+        pastItemsButton.setBackgroundResource(R.color.colorPrimary)
+        pastItemsButton.setTextColor(getResources().getColor(R.color.colorLight))
+        todaysItemsButton.setBackgroundResource(R.color.colorLight)
+        todaysItemsButton.setTextColor(getResources().getColor(R.color.colorPrimary))
+        allItemsButton.setBackgroundResource(R.color.colorLight)
+        allItemsButton.setTextColor(getResources().getColor(R.color.colorPrimary))
 
         todoItemRecyclerView.apply {
             setHasFixedSize(true)
             layoutManager = recyclerLayoutManager
             adapter = recyclerAdapeter
         }
-    }
-
-    fun updateTabColors(btn: String) {
-
     }
 
     public fun navToAddItemAction(view: View) {
