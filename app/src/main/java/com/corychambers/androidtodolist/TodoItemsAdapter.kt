@@ -4,9 +4,11 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 
 class TodoItemsAdapter(private val todoItemsList: ArrayList<TodoItem>, val activity: MainActivity): RecyclerView.Adapter<TodoItemsAdapter.ViewHolder>() {
@@ -49,9 +51,11 @@ class TodoItemsAdapter(private val todoItemsList: ArrayList<TodoItem>, val activ
         val constraintLayout = holder.constraintLayout
         val nameTextView = constraintLayout.getChildAt(0) as TextView
         val urgencyTextView = constraintLayout.getChildAt(1) as TextView
-        val dateTextView = constraintLayout.getChildAt(2) as TextView
+        val urgencyIcon = constraintLayout.getChildAt(2) as Button
+        val dateTextView = constraintLayout.getChildAt(3) as TextView
         nameTextView.text = todoItemsList[position].name
         urgencyTextView.text = if (todoItemsList[position].isUrgent) "!!" else ""
+        urgencyIcon.visibility = if (todoItemsList[position].isUrgent) View.VISIBLE else View.INVISIBLE
         dateTextView.text = todoItemsList[position].dateString
     }
 
