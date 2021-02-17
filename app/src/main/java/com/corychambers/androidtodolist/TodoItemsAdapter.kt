@@ -1,6 +1,7 @@
 package com.corychambers.androidtodolist
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,8 +24,9 @@ class TodoItemsAdapter(private val todoItemsList: ArrayList<TodoItem>, val activ
             val nameTextView = constraintLayout.getChildAt(0) as TextView
             val urgencyTextView = constraintLayout.getChildAt(1) as TextView
             val nameText = nameTextView.text
-            val urgencyText = urgencyTextView.text
-            val isItemUrgent = urgencyText == "!!"
+            val urgencyVisibility = urgencyTextView.visibility
+            Log.d("TEST123", "urgent: " + urgencyVisibility)
+            val isItemUrgent = urgencyVisibility == 0
 
             val intent: Intent = Intent(parent.context, AddItemActivity::class.java)
             intent.putExtra("ITEM_NAME", nameText)
@@ -50,11 +52,9 @@ class TodoItemsAdapter(private val todoItemsList: ArrayList<TodoItem>, val activ
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val constraintLayout = holder.constraintLayout
         val nameTextView = constraintLayout.getChildAt(0) as TextView
-        val urgencyTextView = constraintLayout.getChildAt(1) as TextView
-        val urgencyIcon = constraintLayout.getChildAt(2) as Button
-        val dateTextView = constraintLayout.getChildAt(3) as TextView
+        val urgencyIcon = constraintLayout.getChildAt(1) as TextView
+        val dateTextView = constraintLayout.getChildAt(2) as TextView
         nameTextView.text = todoItemsList[position].name
-        urgencyTextView.text = if (todoItemsList[position].isUrgent) "!!" else ""
         urgencyIcon.visibility = if (todoItemsList[position].isUrgent) View.VISIBLE else View.INVISIBLE
         dateTextView.text = todoItemsList[position].dateString
     }
