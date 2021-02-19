@@ -88,7 +88,7 @@
         android:id="@+id/home_add_button"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/add_todo_button"
         android:gravity="center"
         android:onClick="navToAddItemAction"
         android:text="@string/add_symbol"
