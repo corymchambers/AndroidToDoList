@@ -40,7 +40,7 @@
             android:layout_height="match_parent"
             android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             android:onClick="displayAllItems"
             android:text="@string/all_button_text"
             android:textColor="@color/colorLight"
@@ -55,7 +55,7 @@
             android:background="@color/colorLight"
             android:onClick="displayTodaysItems"
             android:text="@string/today_button_text"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp" />
 
         <Button
@@ -67,7 +67,7 @@
             android:background="@color/colorLight"
             android:onClick="displayPastItems"
             android:text="@string/past_button_text"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp" />
     </LinearLayout>
 

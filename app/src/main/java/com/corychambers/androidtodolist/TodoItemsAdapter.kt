@@ -25,7 +25,6 @@ class TodoItemsAdapter(private val todoItemsList: ArrayList<TodoItem>, val activ
             val urgencyTextView = constraintLayout.getChildAt(1) as TextView
             val nameText = nameTextView.text
             val urgencyVisibility = urgencyTextView.visibility
-            Log.d("TEST123", "urgent: " + urgencyVisibility)
             val isItemUrgent = urgencyVisibility == 0
 
             val intent: Intent = Intent(parent.context, AddItemActivity::class.java)

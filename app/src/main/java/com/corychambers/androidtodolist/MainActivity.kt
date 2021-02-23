@@ -69,12 +69,12 @@ class MainActivity : AppCompatActivity() {
 
     fun displayAllItems(view: View) {
         recyclerAdapeter = TodoItemsAdapter(todoItemsList, this)
-        allItemsButton.setBackgroundResource(R.color.colorPrimary)
+        allItemsButton.setBackgroundResource(R.color.colorPrimaryDark)
         allItemsButton.setTextColor(getResources().getColor(R.color.colorLight))
         todaysItemsButton.setBackgroundResource(R.color.colorLight)
-        todaysItemsButton.setTextColor(getResources().getColor(R.color.colorPrimary))
+        todaysItemsButton.setTextColor(getResources().getColor(R.color.colorPrimaryDark))
         pastItemsButton.setBackgroundResource(R.color.colorLight)
-        pastItemsButton.setTextColor(getResources().getColor(R.color.colorPrimary))
+        pastItemsButton.setTextColor(getResources().getColor(R.color.colorPrimaryDark))
 
         todoItemRecyclerView.apply {
             setHasFixedSize(true)
@@ -85,12 +85,12 @@ class MainActivity : AppCompatActivity() {
 
     public fun displayTodaysItems(view: View) {
         recyclerAdapeter = TodoItemsAdapter(todaysItemsList, this)
-        todaysItemsButton.setBackgroundResource(R.color.colorPrimary)
+        todaysItemsButton.setBackgroundResource(R.color.colorPrimaryDark)
         todaysItemsButton.setTextColor(getResources().getColor(R.color.colorLight))
         pastItemsButton.setBackgroundResource(R.color.colorLight)
-        pastItemsButton.setTextColor(getResources().getColor(R.color.colorPrimary))
+        pastItemsButton.setTextColor(getResources().getColor(R.color.colorPrimaryDark))
         allItemsButton.setBackgroundResource(R.color.colorLight)
-        allItemsButton.setTextColor(getResources().getColor(R.color.colorPrimary))
+        allItemsButton.setTextColor(getResources().getColor(R.color.colorPrimaryDark))
 
         todoItemRecyclerView.apply {
             setHasFixedSize(true)
@@ -101,12 +101,12 @@ class MainActivity : AppCompatActivity() {
 
     public fun displayPastItems(view: View) {
         recyclerAdapeter = TodoItemsAdapter(pastItemsList, this)
-        pastItemsButton.setBackgroundResource(R.color.colorPrimary)
+        pastItemsButton.setBackgroundResource(R.color.colorPrimaryDark)
         pastItemsButton.setTextColor(getResources().getColor(R.color.colorLight))
         todaysItemsButton.setBackgroundResource(R.color.colorLight)
-        todaysItemsButton.setTextColor(getResources().getColor(R.color.colorPrimary))
+        todaysItemsButton.setTextColor(getResources().getColor(R.color.colorPrimaryDark))
         allItemsButton.setBackgroundResource(R.color.colorLight)
-        allItemsButton.setTextColor(getResources().getColor(R.color.colorPrimary))
+        allItemsButton.setTextColor(getResources().getColor(R.color.colorPrimaryDark))
 
         todoItemRecyclerView.apply {
             setHasFixedSize(true)
